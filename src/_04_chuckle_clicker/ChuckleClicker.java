@@ -17,10 +17,11 @@ public class ChuckleClicker implements ActionListener{
 	public void makeButtons() {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
-		
+		JOptionPane.showConfirmDialog(null, "Make buttons");
 		frame.add(panel);
 		panel.add(joke);
 		joke.setText("joke");
+		punchline.setText("punchline");
 		joke.addActionListener(this);
 		punchline.addActionListener(this);
 		panel.add(punchline);
@@ -30,6 +31,7 @@ public class ChuckleClicker implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		JOptionPane.showConfirmDialog(null, "hi");
 		JButton buttonPressed = (JButton) e.getSource();
 		if(buttonPressed.equals(joke)) {
 			JOptionPane.showConfirmDialog(null, "What do you call a cow in an earthquake");

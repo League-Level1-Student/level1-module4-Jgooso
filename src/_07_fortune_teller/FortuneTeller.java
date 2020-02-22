@@ -33,7 +33,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
      // 3. Complete the begin() method in the FortuneTellerRunner class
  	 // 4. add a mouse listener to the frame
-
+   	 
     }
 
 
@@ -43,24 +43,37 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 int mouseX = e.getX();
    	 int mouseY = e.getY();
    	 // 5. Print the mouseX variable
-
+   	 System.out.print(mouseX + " " + mouseY);
    	 // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
    	 // 7. Adjust your secret location co-ordinates here:
-   	 int secretLocationX = 0;
-   	 int secretLocationY = 0;
+   	 int secretLocationX = 100;
+   	 int secretLocationY = 100;
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
    		 // 8. Get the user to enter a question for the fortune teller
-
+   		 JOptionPane.showInputDialog(null,"Ask a Question");
    		 // 9. Find a spooky sound and put it in your default package (freesound.org)
-   		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
+   		 AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // 10. Play the sound
+   		 sound.play();
 
    		 // 11. Use the pause() method below to wait until your music has finished
-
+   		 	pause(1);
    		 // 12. Insert your completed Magic 8 ball code here
-
+   		 int ran = new Random().nextInt(4);
+   			System.out.print(ran);
+   		
+   			if(ran == 0)
+   				JOptionPane.showConfirmDialog(null, "Yes");
+   			else if(ran ==1) {
+   				JOptionPane.showConfirmDialog(null, "No");
+   			}else if(ran == 2) {
+   				JOptionPane.showConfirmDialog(null, "Maybe you should ask Google");
+   			}else if(ran == 3) {
+   				JOptionPane.showConfirmDialog(null, "Never");
+   			}
    	 }
+   	 
 
     }
 
@@ -85,6 +98,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
     @Override
     public void run() {
    	 frame.add(this);
+   	 frame.addMouseListener(this);
    	 setPreferredSize(new Dimension(frameWidth, frameHeight));
    	 frame.pack();
    	 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
