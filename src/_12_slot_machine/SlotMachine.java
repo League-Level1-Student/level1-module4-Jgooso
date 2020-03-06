@@ -16,16 +16,23 @@ public class SlotMachine implements ActionListener{
 	JLabel middle;
 	JButton button = new JButton();
 	String imageL;
-	String imageM;
-	String imageR;
-	public void go() {
+	String imageC;
+	String imageO;
+	public void go(){
 		frame.add(panel);
 		panel.add(left);
 		panel.add(right);
 		panel.add(middle);
-		left = createLabelImage("cherry.jpeg");
-		middle = createLabelImage("lemon.jpeg");
-		right = createLabelImage("orange.jpeg");
+		
+		try {
+			middle = createLabelImage("lemon.jpeg");
+			left = createLabelImage("cherry.jpeg");
+			imageO = "https://image.shutterstock.com/image-photo/ripe-orange-isolated-on-white-260nw-606022676.jpg";
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	public void spin() {
 		int ranL = new Random().nextInt(2);
