@@ -7,6 +7,6 @@ public class SlotMachineRunner {
 	
 	public static void main(String[] args) {
 		slot.go();
-		slot.spin();
+		
 	}
 }
